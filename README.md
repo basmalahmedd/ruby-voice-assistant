@@ -9,7 +9,7 @@
 - 🔊 **Wake Word Activation**: Say "Ruby" to start
 - 🗣️ **Speech Recognition**: Powered by `speech_recognition`
 - ⏳ **5-Minute Active Window**: After wake word
-- 🌦️ **Weather Updates**: Get Cairo’s weather via `wttr.in` (no API key needed)
+- 🌦️ **Weather Updates**: Get weather via `wttr.in` 
 - 🎵 **Play YouTube Songs**: Just ask for your favorite track
 - 🔍 **Google Search**: Quick answers to your questions
 - 😂 **Jokes**: Lighten the mood anytime
