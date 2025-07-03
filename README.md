@@ -1,39 +1,41 @@
 # 🎙️ Ruby – Your Personal Voice Assistant
 
-**Ruby** is a real-time Python voice assistant. She listens for the wake word "**Ruby**", stays active for 5 minutes, and supports tasks like telling jokes, checking the weather, searching Google, playing music, and more.
+**Ruby** is a real-time Python voice assistant that brings smart features to your desktop. Just say "**Ruby**" to activate her, and she’ll help you with jokes, weather updates, Google searches, music, and more—all hands-free!
 
 ---
 
 ## 🚀 Features
 
-- 🔊 **Wake word**: Say "Ruby" to activate
-- 🗣️ **Speech recognition** (via `speech_recognition`)
-- 🧠 Active for 5 minutes after wake
-- 🌤️ **Weather in Cairo** using `wttr.in` (no API key required)
-- 🎵 **Play YouTube songs**
-- 🔍 **Search Google**
-- 😂 **Jokes**
-- ⏰ **Current time**
-- ❌ Say “exit” to stop
+- 🔊 **Wake Word Activation**: Say "Ruby" to start
+- 🗣️ **Speech Recognition**: Powered by `speech_recognition`
+- ⏳ **5-Minute Active Window**: After wake word
+- 🌦️ **Weather Updates**: Get Cairo’s weather via `wttr.in` (no API key needed)
+- 🎵 **Play YouTube Songs**: Just ask for your favorite track
+- 🔍 **Google Search**: Quick answers to your questions
+- 😂 **Jokes**: Lighten the mood anytime
+- 🕒 **Current Time**: Ask for the time
+- ❌ **Exit Command**: Say “exit” to stop Ruby
 
 ---
 
 ## 🛠️ Installation
 
-```bash
-pip install SpeechRecognition pyttsx3 pywhatkit pyjokes requests pyaudio
-```
+1. **Install dependencies:**
+    ```bash
+    pip install SpeechRecognition pyttsx3 pywhatkit pyjokes requests pyaudio
+    ```
 
-If `pyaudio` gives an error on Windows:
-```bash
-pip install pipwin
-pipwin install pyaudio
-```
+2. **If you get a `pyaudio` error on Windows:**
+    ```bash
+    pip install pipwin
+    pipwin install pyaudio
+    ```
 
 ---
 
-## ▶️ Run the Assistant
+## ▶️ Usage
 
+Start Ruby with:
 ```bash
 python ruby_assistant.py
 ```
@@ -41,20 +43,17 @@ python ruby_assistant.py
 ---
 
 
-## 🌦️ Weather Info
+## 🌦️ Weather Customization
 
-Ruby fetches the current weather in **Cairo** using `wttr.in`:
+Ruby fetches the current weather in **Cairo** using:
 ```python
 url = "https://wttr.in/Cairo?format=3"
 ```
-
-Change `"Cairo"` to your own city name if desired.
+To use your own city, just replace `"Cairo"` with your city name.
 
 ---
 
-
-
-## 🧰 Powered By
+## 🧰 Built With
 
 - [SpeechRecognition](https://pypi.org/project/SpeechRecognition/)
 - [pyttsx3](https://pypi.org/project/pyttsx3/)
