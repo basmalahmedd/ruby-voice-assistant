@@ -1,4 +1,4 @@
-import speech_recognition as sr
+import speech_recognition as sr 
 import pyttsx3
 import pywhatkit
 import pyjokes
@@ -6,14 +6,19 @@ import requests
 from datetime import datetime, timedelta
 
 # CONFIGURATION
-
-CITY = "Cairo"  
 API_KEY = "8419dabc35767ad4a21686a99639cfb4"  
 
+def get_city_from_ip():
+    try:
+        ip_info = requests.get("https://ipinfo.io").json()
+        return ip_info.get("city", "Cairo")
+    except:
+        return "Cairo"
 
 recognizer = sr.Recognizer()
 engine = pyttsx3.init()
 
+# Voice
 voices = engine.getProperty('voices')
 for voice in voices:
     if "female" in voice.name.lower() or "zira" in voice.name.lower():
@@ -22,13 +27,11 @@ for voice in voices:
 
 engine.setProperty('rate', 150)  # speed
 
-
 # TTS Function
 def speak(text):
     print("Ruby:", text)
     engine.say(text)
     engine.runAndWait()
-
 
 # STT Function
 def listen(timeout=5, phrase_time_limit=8):
@@ -51,20 +54,20 @@ def listen(timeout=5, phrase_time_limit=8):
 
 # Get Weather Info
 def get_weather():
-    url = f"http://api.openweathermap.org/data/2.5/weather?q={CITY}&appid={API_KEY}&units=metric"
+    city = get_city_from_ip()
+    url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
     try:
         response = requests.get(url)
         data = response.json()
         if data["cod"] != 200:
-            return "Sorry, I couldn't fetch the weather right now."
+            return f"Sorry, I couldn't fetch the weather for {city}."
         temp = data["main"]["temp"]
         description = data["weather"][0]["description"]
-        return f"The weather in {CITY} is {description} with a temperature of {temp} degrees Celsius."
+        return f"The weather in {city} is {description} with a temperature of {temp} degrees Celsius."
     except:
         return "Sorry, something went wrong while getting the weather."
 
 # Respond to Commands
-
 def respond_to_command(command):
     if "your name" in command:
         speak("My name is Ruby, your voice assistant.")
@@ -109,6 +112,5 @@ def main():
                     return
             speak("Going back to sleep.")
 
-#  Ruby
 if __name__ == "__main__":
     main()
